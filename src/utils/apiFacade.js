@@ -1,11 +1,11 @@
 import {BASE_URL, VERIFY_URL, LOGIN_URL} from './settings';
 
-function handleHttpErrors(res) {
-    if (!res.ok) {
-        return Promise.reject({status: res.status, fullError: res.json()})
+function handleHttpErrors(response) {
+    if (!response.ok) {
+        return Promise.reject(response.json());
     }
-    return res.json();
-}
+    return response;
+};
 
 function apiFacade() {
 
@@ -21,32 +21,42 @@ function apiFacade() {
         return localStorage.removeItem('jwtToken')
     }
 
-    
-    const verifyToken = () => {
-        const options = makeOptions("GET", true ) //true er lig med addToken som Thomas har lavet i forvejen nedenunderm makeOPtions function
-         return fetch(VERIFY_URL, options) //verify_URL is defined in setting.js
-            .then(res => res.json())
-    }
-
+    const verifyToken = async () => {
+        const options = makeOptions("GET", true);
+        const response = await fetch(VERIFY_URL, options);
+        try {
+            const token = (await (await handleHttpErrors(response)).json())["token"];
+            setToken(token);
+            console.log(token);
+            return token;
+        } catch (error) {
+            removeToken();
+            console.log((await error).message);
+            //alert("Your session has expired. Please log in again.");
+            return false;
+        }
+    };
     const loggedIn = () => {
         return getToken() != null;
     }
 
-    const logout = () => {
+    const logOut = () => {
         localStorage.removeItem("jwtToken");
     }
 
-    //made some changes to async etc.
-    const login = (user, password) => {
+    const logIn = async (user, password) => {
         const options = makeOptions("POST", false, {username: user, password: password});
-        return fetch(LOGIN_URL, options)
-        .then(response => handleHttpErrors(response))
-        .then(token => {
-            setToken(token) 
-            return token
-        })
-        
-    }
+        const response = await fetch(LOGIN_URL, options);
+        try {
+            const token = (await (await handleHttpErrors(response)).json())["token"];
+            setToken(token);
+            console.log(token);
+            return token;
+        } catch (error) {
+            console.log((await error).message);
+            return false;
+        }
+    };
 
     // added this function because we want read user(altså bruger) and its roles from token above in login function
     const decodeToken = (token) => {
@@ -88,8 +98,8 @@ function apiFacade() {
         setToken,
         getToken,
         loggedIn,
-        login,
-        logout,
+        logIn,
+        logOut,
         fetchData,
         verifyToken,
         removeToken,
@@ -112,8 +122,8 @@ export function verifyToken(token) {
 export function loggedIn() {
     return apiFacade().loggedIn()
 }
-export function login(user, password) {
-    return apiFacade().login(user, password)
+export function logIn(user, password) {
+    return apiFacade().logIn(user, password)
 }
 export function removeToken() {
     return apiFacade().removeToken()

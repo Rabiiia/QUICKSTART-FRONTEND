@@ -6,20 +6,10 @@ function Login({setUser, setErrorMsg}) {
     const init = {username: "", password: ""};
     const [loginCredentials, setLoginCredentials] = useState(init);
 
-    //changes made
-    const performLogin =  (evt) => { //made it a async
+    const performLogin = async (evt) => {
         evt.preventDefault();
-        facade.login(loginCredentials.username, loginCredentials.password)
-        .then(token => {
-            console.log(token)
-            updateUser(token, setUser);
-        });
-       
-    }
-
-    const login = (user, pass) => {
-        facade.login(user, pass)
-            .then(res => setUser(true))
+        const token = (await facade.logIn(loginCredentials.username, loginCredentials.password));
+        updateUser(token, setUser);
     }
 
     const onChange = (evt) => {
