@@ -10,7 +10,7 @@
 4) Set permissions so we can upload the project:  chmod -R 747 XXXX <-- replace with created folder from above
 5) Go to package.json in your visual studio code or webstorm
 *    "build": "vite build --base=/XXX/", <-- replace XXX with the name you created your folder with
-6) npm build in terminal 
+6) npm run build in terminal 
 
 Angående deployment af frontend: Vi bruger "npm run build" til at bygge vores frontend. 
 Derefter kan man finde den byggede udgave i folderen "dist".
