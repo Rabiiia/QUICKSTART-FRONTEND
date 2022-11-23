@@ -1,9 +1,9 @@
 # QUICKSTART-FRONTEND
 
-* npm install 
-* npm run dev locally
+* npm install in terminal
+* npm run dev in terminal. Remember it is only running locally right now
 
-### How to deploy to your nginx server on your droplet
+### How to deploy frontend-project to your nginx server on your droplet
 1) SSH into your droplet that holds your Nginx and Tomcat + Mysql (the last two running in our docker-compose setup)
 2) Type:  cd /var/www
 3) In the www folder, create a new folder to hold the front-end project:  mkdir XXXX
