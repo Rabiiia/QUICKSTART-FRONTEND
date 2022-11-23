@@ -74,8 +74,10 @@ function App(props) {
        
         {!getToken() ? (
           <>
-          <Route path="/" element={<LandingPage user={user} />} />
            {/* Add only Routes where you dont have to be logged ind to access */}
+          <Route path="/" element={<LandingPage user={user} />} /> 
+          {/* But when you are going to deploy it then your path={DROPLET_FOLDER}, hopefully it works correctly */}
+          
           </>
         ) : 
         
@@ -93,8 +95,9 @@ function App(props) {
         </>
         )}
 
-        {/* Does not matter if logged ind. You can always see these*/}
+        {/* Does not matter if logged ind. You can always see these paths down below*/}
         <Route path="/search" element={<Search />} />
+         {/* But when you are going to deploy it then your path={DROPLET_FOLDER + /search} path above, hopefully it works correctly */}
         <Route path="/contact" element={<Contact address={obj} />} />
         <Route path="/jokes" element={<Jokes />} />
         
