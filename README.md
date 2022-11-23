@@ -20,5 +20,4 @@ F.eks. kunne folderen hedde "/var/www/CA1/". Problemet er nu, at at index.html i
 Derfor skal vi angive rodfolderen for applikationen i package.json. Det gøres således: ""build": "vite build --base=/CA1". 
 
 
-7)  Open a terminal (git bash or something) and navigate into the build folder created above, and type:
-*   scp -r ./dist/* root@XXXX:/var/www/XXX
+7)  Open a terminal (git bash or something) and navigate into the build folder created above, and type: scp -r ./dist/* root@XXXX:/var/www/XXX
