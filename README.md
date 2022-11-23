@@ -3,7 +3,7 @@
 * npm install 
 * npm run dev locally
 
-# How to deploy to your niginx server 
+### How to deploy to your nginx server on your droplet
 1) SSH into your droplet that holds your Nginx and Tomcat + Mysql (the last two running in our docker-compose setup)
 2) Type:  cd /var/www
 *    In all the following, replace XXXX with the name of your frontend project, for example movie
@@ -22,5 +22,5 @@ Derfor skal vi angive rodfolderen for applikationen i package.json. Det gøres s
 
 7)  Open a terminal (git bash or something) and navigate into the build folder created above, and type: scp -r ./dist/* root@XXXX:/var/www/XXX
 
-# REMEMBER (Just like everytime your have to push in your IDE to github repository)
+### REMEMBER (Just like everytime your have to push in your IDE to github repository)
 Everytime you want to deploy your changes in your frontend project locally to your droplet: ./deploy.sh in your terminal
