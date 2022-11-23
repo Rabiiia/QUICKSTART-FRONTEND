@@ -21,4 +21,4 @@ Derfor skal vi angive rodfolderen for applikationen i package.json. Det gøres s
 
 
 7)  Open a terminal (git bash or something) and navigate into the build folder created above, and type:
-    scp -r ./dist/* root@XXXX:/var/www/XXX
+        scp -r ./dist/* root@XXXX:/var/www/XXX
