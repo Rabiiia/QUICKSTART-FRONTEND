@@ -7,7 +7,7 @@
 1) SSH into your droplet that holds your Nginx and Tomcat + Mysql (the last two running in our docker-compose setup)
 2) Type:  cd /var/www
 3) In the www folder, create a new folder to hold the front-end project:  mkdir XXXX
-4) Set permissions so we can upload the project:  chmod -R 747 XXXX
+4) Set permissions so we can upload the project:  chmod -R 747 XXXX <-- replace with created folder from above
 5) Go to package.json in your visual studio code or webstorm
 *    "build": "vite build --base=/XXX/", <-- replace XXX with the name you created your folder with
 6) npm build in terminal 
