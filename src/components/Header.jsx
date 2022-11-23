@@ -14,7 +14,7 @@ function Header({setErrorMsg, user, setUser}) {
             <NavLink className="active" to="/"><i className="fa fa-fw fa-home"></i> Home</NavLink>
             <NavLink to="/search"><i className="fa fa-fw fa-search"></i> Search</NavLink>
         
-            {/* But when you deploy then navlink above will be - > */}
+            {/* But when you deploy then navlinks above will be - > */}
             {/* <NavLink className="active" to="{DROPLET_FOLDER}"><i className="fa fa-fw fa-home"></i> Home</NavLink>
                 <NavLink to={DROPLET_FOLDER + "/search"}><i className="fa fa-fw fa-search"></i> Search</NavLink> */}
 
