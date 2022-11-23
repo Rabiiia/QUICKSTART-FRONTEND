@@ -12,11 +12,13 @@
 * 5) Go to package.json in your visual studie code or webstorm
 *    "build": "vite build --base=/XXX/", <-- replace XXX with the name you created your folder with
 * 6) npm build in terminal 
-*    Angående deployment af frontend: Vi bruger "npm run build" til at bygge vores frontend. 
-*    Derefter kan man finde den byggede udgave i folderen "dist".
- Filerne heri og foldere kopieres derefter til dropletten i en folder under /var/www som er default location for Nginx med "scp".
- F.eks. kunne folderen hedde "/var/www/CA1/". Problemet er nu, at at index.html importerer vores javascript fra en forkert folder.
- Derfor skal vi angive rodfolderen for applikationen i package.json. Det gøres således: ""build": "vite build --base=/CA1". 
-Nu kan I bygge igen med "npm run build" - og så passer stierne. 
+
+Angående deployment af frontend: Vi bruger "npm run build" til at bygge vores frontend. 
+Derefter kan man finde den byggede udgave i folderen "dist".
+Filerne heri og foldere kopieres derefter til dropletten i en folder under /var/www som er default location for Nginx med "scp".
+F.eks. kunne folderen hedde "/var/www/CA1/". Problemet er nu, at at index.html importerer vores javascript fra en forkert folder.
+Derfor skal vi angive rodfolderen for applikationen i package.json. Det gøres således: ""build": "vite build --base=/CA1". 
+
+
 7)  Open a terminal (git bash on Windows) and navigate into the build folder created above, and type:
     scp -r ./dist/* root@XXXX:/var/www/XXX
