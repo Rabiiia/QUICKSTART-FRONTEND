@@ -22,4 +22,4 @@ Derfor skal vi angive rodfolderen for applikationen i package.json. Det gøres s
 7)  Open a terminal (git bash or something) and navigate into the build folder created above, and type: scp -r ./dist/* root@XXXX:/var/www/XXX
 
 ### REMEMBER (Just like everytime your have to push in your IDE to github repository)
-Everytime you want to deploy your changes in your frontend project locally to your droplet: ./deploy.sh in your terminal
+- The same way if you want to deploy your changes in your frontend project locally to your droplet: ./deploy.sh in your terminal
