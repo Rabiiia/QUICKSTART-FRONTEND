@@ -17,4 +17,4 @@ echo "##############################"
 # second xxxxx with your frontend folder
 scp -r ./dist/* root@xxxxx:/var/www/xxxxx
 
-# write ./deploy in terminal everytime you want to deploy frontend changes on your nginx server 
+# write ./deploy.sh in terminal everytime you want to deploy frontend changes on your nginx server 
